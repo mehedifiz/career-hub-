@@ -7,6 +7,8 @@ const FuturetedJobs = () => {
 
     const[jobs , setJobs] = useState([]);
 
+        const [length ,setLength] = useState(4)
+
 
 useEffect(()=>{
     fetch('jobs.json')
@@ -26,12 +28,15 @@ useEffect(()=>{
             <div className='grid grid-cols-2 gap-6'>
 
                 {
-         jobs.map((job) => <Job key={job.id}  job={job}></Job>)
+         jobs.slice(0 , length).map((job) => <Job key={job.id}  job={job}></Job>)
                 }
 
             </div>
 
-
+                        <div className= {length=== jobs.length && 'hidden'    }>
+                            <button 
+                            onClick={()=> setLength(jobs.length)} className='btn btn-primary'>See More</button>
+                        </div>
         </div>
     );
 };
