@@ -1,8 +1,9 @@
 import { MdOutlineLocationOn  } from "react-icons/md";
 import { FiDollarSign } from "react-icons/fi";
+import { Link } from "react-router-dom";
 const Job = ({job}) => {
 
-    const {logo , job_title , company_name,remote_or_onsite,location,job_type,salary,job_description} = job;
+    const { id ,logo , job_title , company_name,remote_or_onsite,location,job_type,salary,job_description} = job;
 
     return (
         <div className="card card-compact  bg-base-100 shadow-xl">
@@ -25,7 +26,8 @@ const Job = ({job}) => {
 
 
           <div className="card-actions">
-            <button className="btn btn-primary bg-gradient-to-r from-indigo-500">View Details</button>
+           <Link to={`/job/${id}`}>
+             <button className="btn bg-gradient-to-r from-indigo-500">View Details</button></Link>
           </div>
         </div>
       </div>
